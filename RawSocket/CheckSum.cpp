@@ -40,6 +40,15 @@ uint16_t cksumIp(iphdr* pIpHead){
   return htons((uint16_t)~ckSum);
 }
 
+uint16_t cksumUdp(iphdr* pIpHead, udphdr* pUdpHead){
+  pUdpHead->check = 0;
+  uint32_t ckSum = CalPseudoHeadSum(pIpHead, 0x11);
+  ckSum += CalSum((uint8_t*)pUdpHead, ntohs(pUdpHead->len));
+  ckSum = (ckSum >> 16) + (ckSum & 0xffff);
+  ckSum += ckSum >> 16;
+  return htons((uint16_t)~ckSum);
+}
+
 uint16_t cksumTcp(iphdr* pIpHead, tcphdr* pTcpHead){
   pTcpHead->check = 0;
   uint32_t ckSum = CalPseudoHeadSum(pIpHead, 0x06);
