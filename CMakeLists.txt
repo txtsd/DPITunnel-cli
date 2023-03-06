@@ -53,7 +53,7 @@ find_package(Threads REQUIRED)
 if (STATIC_BINARY)
     set(OPENSSL_USE_STATIC_LIBS TRUE)
 endif ()
-find_package(OpenSSL REQUIRED COMPONENTS SSL Crypto)
+find_package(OpenSSL 3.0.0 REQUIRED COMPONENTS SSL Crypto)
 
 # Add httplib (cpp-httplib)
 find_package(httplib 0.12.0 COMPONENTS OpenSSL ZLIB Brotli)
