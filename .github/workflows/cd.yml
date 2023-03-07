@@ -32,7 +32,7 @@ jobs:
 
       - name: Upload Binary
         if: github.event_name != 'release'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: dpitunnel-cli-${{ matrix.arch }}
           path: build/DPITunnel-cli-exec
