@@ -9,7 +9,6 @@
 
 #include <algorithm>
 #include <atomic>
-#include <arpa/inet.h>
 #include <cerrno>
 #include <chrono>
 #include <cstring>

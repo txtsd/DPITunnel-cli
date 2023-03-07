@@ -26,7 +26,6 @@
 
 #include <netlink/netlink.h>    //lots of netlink functions
 #include <netlink/genl/genl.h>  //genl_connect, genlmsg_put
-#include <netlink/genl/family.h>
 #include <netlink/genl/ctrl.h>
 
 extern int Interrupt_pipe[2];
