@@ -17,6 +17,13 @@ add_subdirectory(RawSocket)
 add_subdirectory(dnslib)
 add_subdirectory(libnl)
 
+# Add dependency - httplib (cpp-httplib)
+find_package(httplib 0.12.0 COMPONENTS OpenSSL ZLIB Brotli)
+if (NOT HTTPLIB_FOUND)
+    add_subdirectory(cpp-httplib)
+    message(STATUS "Using bundled httplib")
+endif ()
+
 # Add an executable
 add_executable(DPITunnel-cli-exec
         autoconf.cpp
@@ -54,13 +61,6 @@ if (STATIC_BINARY)
     set(OPENSSL_USE_STATIC_LIBS TRUE)
 endif ()
 find_package(OpenSSL 3.0.0 REQUIRED COMPONENTS SSL Crypto)
-
-# Add httplib (cpp-httplib)
-find_package(httplib 0.12.0 COMPONENTS OpenSSL ZLIB Brotli)
-if (NOT HTTPLIB_FOUND)
-    add_subdirectory(cpp-httplib)
-    message(STATUS "Using bundled httplib")
-endif()
 
 target_link_libraries(DPITunnel-cli-exec
         RawSocket
