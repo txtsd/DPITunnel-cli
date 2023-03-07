@@ -12,7 +12,7 @@
 #include <string>
 #include <fcntl.h>
 #include <poll.h>
-#include <time.h>
+#include <ctime>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netinet/ip.h>

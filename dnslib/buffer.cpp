@@ -128,7 +128,7 @@
 #include <string>
 #include <iomanip>
 #include <algorithm>
-#include <string.h>
+#include <cstring>
 
 #include <dnslib/buffer.h>
 #include <dnslib/exception.h>

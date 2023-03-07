@@ -19,7 +19,7 @@
 #include <future>
 #include <mutex>
 #include <thread>
-#include <signal.h>
+#include <csignal>
 #include <unordered_map>
 #include <sys/prctl.h>
 #include <sys/socket.h>

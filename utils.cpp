@@ -4,13 +4,13 @@
 
 #include <arpa/inet.h>
 #include <fcntl.h>
-#include <signal.h>
+#include <csignal>
 #include <algorithm>
 #include <cstring>
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <math.h>
+#include <cmath>
 #include <unistd.h>
 
 extern struct Settings_perst_s Settings_perst;

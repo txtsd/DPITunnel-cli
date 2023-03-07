@@ -1,5 +1,5 @@
 #include <RawSocket/CheckSum.h>
-#include <stdio.h>
+#include <cstdio>
 
 struct PseudoHead{
   uint8_t zero;
