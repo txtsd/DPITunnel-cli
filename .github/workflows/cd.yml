@@ -28,7 +28,7 @@ jobs:
 
       - name: Build
         run: |
-          docker run --workdir /github/workspace --rm --entrypoint "./build_static_alpine.sh" -v "$(pwd)":"/github/workspace" multiarch/alpine:${{ matrix.arch }}-v3.14
+          docker run --workdir /github/workspace --rm --entrypoint "./build_static_alpine.sh" -v "$(pwd)":"/github/workspace" multiarch/alpine:${{ matrix.arch }}-edge
 
       - name: Upload Binary
         if: github.event_name != 'release'
