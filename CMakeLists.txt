@@ -15,7 +15,6 @@ project(DPITunnel-cli)
 # Add dependencies
 add_subdirectory(RawSocket)
 add_subdirectory(dnslib)
-add_subdirectory(libnl)
 
 # Add an executable
 add_executable(DPITunnel-cli-exec
@@ -47,6 +46,8 @@ target_include_directories(DPITunnel-cli-exec
         ${PROJECT_SOURCE_DIR}/libnl/include
         )
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
@@ -62,11 +63,15 @@ if (NOT HTTPLIB_FOUND)
     message(STATUS "Using bundled httplib")
 endif()
 
+# Add libnl (libnl)
+find_package(LibNL REQUIRED)
+
 target_link_libraries(DPITunnel-cli-exec
         RawSocket
         httplib::httplib
         dnslib
-        libnl
+        nl-3
+        nl-genl-3
         Threads::Threads
         OpenSSL::SSL
         OpenSSL::Crypto
