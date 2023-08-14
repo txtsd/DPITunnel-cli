@@ -37,15 +37,6 @@ if (STATIC_BINARY)
     target_compile_options(DPITunnel-cli-exec PRIVATE -ffunction-sections)
 endif ()
 
-# Set the directories that should be included in the build command for this target
-target_include_directories(DPITunnel-cli-exec
-        PRIVATE
-        ${PROJECT_SOURCE_DIR}/include
-        ${PROJECT_SOURCE_DIR}/RawSocket/include
-        ${PROJECT_SOURCE_DIR}/dnslib/include
-        ${PROJECT_SOURCE_DIR}/libnl/include
-        )
-
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
@@ -65,6 +56,15 @@ endif()
 
 # Add libnl (libnl)
 find_package(LibNL REQUIRED)
+
+# Set the directories that should be included in the build command for this target
+target_include_directories(DPITunnel-cli-exec
+        PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+        ${PROJECT_SOURCE_DIR}/RawSocket/include
+        ${PROJECT_SOURCE_DIR}/dnslib/include
+        ${LibNL_INCLUDE_DIR}
+        )
 
 target_link_libraries(DPITunnel-cli-exec
         RawSocket
