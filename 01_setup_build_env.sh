@@ -1,11 +1,11 @@
 #!/bin/ash
 
 apk update
-apk add alpine-sdk doas
+apk add alpine-sdk
 
-doas addgroup $(whoami) abuild
-doas mkdir -p /var/cache/distfiles
-doas chmod a+w /var/cache/distfiles
-doas chgrp abuild /var/cache/distfiles
-doas chmod g+w /var/cache/distfiles
+addgroup $(whoami) abuild
+mkdir -p /var/cache/distfiles
+chmod a+w /var/cache/distfiles
+chgrp abuild /var/cache/distfiles
+chmod g+w /var/cache/distfiles
 
