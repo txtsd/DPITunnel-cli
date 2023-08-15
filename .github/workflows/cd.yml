@@ -27,9 +27,17 @@ jobs:
         run: |
           docker run --rm --privileged multiarch/qemu-user-static:register --reset
 
-      - name: Build
+      - name: Setup build environment in Docker
         run: |
-          docker run --workdir /github/workspace --rm --entrypoint "./build_static_alpine.sh" -v "$(pwd)":"/github/workspace" multiarch/alpine:${{ matrix.arch }}-edge
+          docker run --workdir /github/workspace --rm --entrypoint "./01_setup_build_env.sh" -v "$(pwd)":"/github/workspace" multiarch/alpine:${{ matrix.arch }}-edge
+
+      - name: Build static libnl3 in Docker
+        run: |
+          docker run --workdir /github/workspace --rm --entrypoint "./02_build_static_libnl3.sh" -v "$(pwd)":"/github/workspace" multiarch/alpine:${{ matrix.arch }}-edge
+
+      - name: Build in Docker
+        run: |
+          docker run --workdir /github/workspace --rm --entrypoint "./03_build_static_alpine.sh" -v "$(pwd)":"/github/workspace" multiarch/alpine:${{ matrix.arch }}-edge
 
       - name: Upload Binary
         if: github.event_name != 'release'
