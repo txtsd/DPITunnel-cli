@@ -1,9 +1,11 @@
-name: CD
+name: Build
 
 on:
   release:
     types: [created]
   push:
+  pull_request:
+    types: [opened, edited]
 
 jobs:
   build:
@@ -25,11 +27,11 @@ jobs:
 
       - name: Setup Docker
         run: |
-          docker run --rm --privileged multiarch/qemu-user-static:register --reset
+          docker run --rm --privileged multiarch/qemu-user-static:register --reset --credential yes
 
-      - name: Build
+      - name: Build in Docker
         run: |
-          docker run --workdir /github/workspace --rm --entrypoint "./build_static_alpine.sh" -v "$(pwd)":"/github/workspace" multiarch/alpine:${{ matrix.arch }}-edge
+          docker run --workdir /github/workspace --rm --entrypoint "./.github/scripts/build.sh" -v "$(pwd)":"/github/workspace" multiarch/alpine:${{ matrix.arch }}-edge
 
       - name: Upload Binary
         if: github.event_name != 'release'
