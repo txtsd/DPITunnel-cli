@@ -1,8 +1,9 @@
 #!/bin/ash
+set -x
 
 # General updates
 apk update
-apk add cmake openssl openssl-dev openssl-libs-static linux-headers ninja-is-really-ninja alpine-sdk runuser doas
+apk add cmake openssl openssl-dev openssl-libs-static linux-headers ninja-is-really-ninja alpine-sdk runuser doas sudo
 
 # Setup build environment
 addgroup $(whoami) abuild
@@ -13,6 +14,7 @@ chmod g+w /var/cache/distfiles
 
 # Create user to run abuild
 adduser -G abuild -g "Alpine Package Builder" -s /bin/ash -D abuilder
+echo "abuilder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # Build static libnl3
 runuser -u abuilder -- /usr/bin/abuild-keygen -n -a -i -b 4096
