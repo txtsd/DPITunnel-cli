@@ -1,4 +1,4 @@
-#include "dpitunnel-cli.h"
+#include "dpitunnel.h"
 
 #include "dns.h"
 #include "ssl.h"
@@ -172,7 +172,7 @@ int resolve_host_over_udp(const std::string &host, std::string &ip) {
                 try {
                     dns_msg_resp.decode(response.c_str(), bytes_read);
                 } catch (dns::Exception &e) {
-                    std::cerr << "Exception occured while parsing DNS response: " << e.what()
+                    std::cerr << "Exception occurred while parsing DNS response: " << e.what()
                               << std::endl;
                     close(sock);
                     return -1;
@@ -281,7 +281,7 @@ int resolve_host_over_doh(const std::string &host, std::string &ip) {
     try {
         dns_msg_resp.decode(response_string.c_str(), response_string.size());
     } catch (dns::Exception &e) {
-        std::cerr << "Exception occured while parsing DNS response: " << e.what() << std::endl;
+        std::cerr << "Exception occurred while parsing DNS response: " << e.what() << std::endl;
         return -1;
     }
 

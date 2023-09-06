@@ -37,14 +37,14 @@ jobs:
         if: github.event_name != 'release'
         uses: actions/upload-artifact@v3
         with:
-          name: dpitunnel-cli-${{ matrix.arch }}
-          path: build/DPITunnel-cli-exec
+          name: dpitunnel-${{ matrix.arch }}
+          path: build/DPITunnel-exec
 
       - name: Upload Binary to Release
         if: github.event_name == 'release'
         uses: svenstaro/upload-release-action@2.7.0
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/DPITunnel-cli-exec
-          asset_name: dpitunnel-cli-${{ matrix.arch }}
+          file: build/DPITunnel-exec
+          asset_name: dpitunnel-${{ matrix.arch }}
           tag: ${{ github.ref }}

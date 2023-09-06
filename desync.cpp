@@ -1,4 +1,4 @@
-#include "dpitunnel-cli.h"
+#include "dpitunnel.h"
 
 #include "desync.h"
 #include "socket.h"
@@ -123,7 +123,7 @@ int sniff_ack_packet(std::string *packet, std::string ip_srv, int port_srv,
                 int port_src_recv = ntohs(tcp_h->source);
                 // Get dest port (client port)
                 int port_dst_recv = ntohs(tcp_h->dest);
-                // Compare received IP/port and IP/port we waiting for
+                // Compare received IP/port and IP/port we're waiting for
                 if (ip_h->saddr == ip_srv_sockaddr.sin_addr.s_addr &&
                     port_srv == port_src_recv && port_local == port_dst_recv) {
                     *packet = buffer;
@@ -228,7 +228,7 @@ int sniff_handshake_packet(std::string *packet, std::string ip_srv,
                 int port_src_recv = ntohs(tcp_h->source);
                 // Get dest port (client port)
                 int port_dst_recv = ntohs(tcp_h->dest);
-                // Compare received IP/port and IP/port we waiting for
+                // Compare received IP/port and IP/port we're waiting for
                 if (ip_h->saddr == ip_srv_sockaddr.sin_addr.s_addr &&
                     port_srv == port_src_recv) {
                     if (!is_searched)
