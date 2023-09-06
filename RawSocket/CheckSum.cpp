@@ -17,8 +17,7 @@ static uint32_t CalSum(const uint8_t* buf, int len) {
     p += 2;
   }
   if (len == 1)
-    sum += *p << 8;  //
-    //sum += *p;  //
+    sum += *p << 8;
   return sum;
 }
 
@@ -35,6 +34,15 @@ static uint32_t CalPseudoHeadSum(const iphdr* pIpHead, uint8_t type) {
 uint16_t cksumIp(iphdr* pIpHead){
   pIpHead->check = 0;
   uint32_t ckSum = CalSum((uint8_t*)pIpHead, pIpHead->ihl * 4);
+  ckSum = (ckSum >> 16) + (ckSum & 0xffff);
+  ckSum += ckSum >> 16;
+  return htons((uint16_t)~ckSum);
+}
+
+uint16_t cksumUdp(iphdr* pIpHead, udphdr* pUdpHead){
+  pUdpHead->check = 0;
+  uint32_t ckSum = CalPseudoHeadSum(pIpHead, 0x11);
+  ckSum += CalSum((uint8_t*)pUdpHead, ntohs(pUdpHead->len));
   ckSum = (ckSum >> 16) + (ckSum & 0xffff);
   ckSum += ckSum >> 16;
   return htons((uint16_t)~ckSum);

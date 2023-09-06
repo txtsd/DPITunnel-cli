@@ -7,10 +7,12 @@ extern "C" {
 
 #include <stdint.h>
 #include <netinet/ip.h>
+#include <netinet/udp.h>
 #include <netinet/tcp.h>
 #include <arpa/inet.h>
 
 uint16_t cksumIp(iphdr* pIpHead);
+uint16_t cksumUdp(iphdr* pIpHead, udphdr* pUdpHead);
 uint16_t cksumTcp(iphdr* pIpHead, tcphdr* pTcpHead);
 
 #ifdef __cplusplus
