@@ -7,9 +7,9 @@ Free, simple and serverless solution against censorship for Linux PCs and router
 <br>
 <a href="https://github.com/nomoresat/DPITunnel-android">Want version for Android?</a>
 
-<a href="https://github.com/nomoresat/DPITunnel-cli/blob/master/LICENSE"><img src="https://img.shields.io/github/license/nomoresat/DPITunnel-cli?style=flat-square" alt="License"/></a>
-<a href="https://github.com/nomoresat/DPITunnel-cli/releases/latest"><img src="https://img.shields.io/github/v/release/nomoresat/DPITunnel-cli?style=flat-square" alt="Latest release"/></a>
-<a href="https://github.com/nomoresat/DPITunnel-cli/releases"><img src="https://img.shields.io/github/downloads/nomoresat/DPITunnel-cli/total?style=flat-square" alt="Downloads"/></a>
+<a href="https://github.com/txtsd/DPITunnel-cli/blob/master/LICENSE"><img src="https://img.shields.io/github/license/nomoresat/DPITunnel-cli?style=flat-square" alt="License"/></a>
+<a href="https://github.com/txtsd/DPITunnel-cli/releases/latest"><img src="https://img.shields.io/github/v/release/nomoresat/DPITunnel-cli?style=flat-square" alt="Latest release"/></a>
+<a href="https://github.com/txtsd/DPITunnel-cli/releases"><img src="https://img.shields.io/github/downloads/nomoresat/DPITunnel-cli/total?style=flat-square" alt="Downloads"/></a>
 </div>
 
 ### What is it
