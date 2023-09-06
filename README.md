@@ -3,13 +3,9 @@
 <br><h1>DPI Tunnel for Linux</h1>
 Free, simple and serverless solution against censorship for Linux PCs and routers
 
-<a href="https://t.me/DPITunnelOFFICIAL">Telegram chat</a>
-<br>
-<a href="https://github.com/nomoresat/DPITunnel-android">Want version for Android?</a>
-
-<a href="https://github.com/txtsd/DPITunnel-cli/blob/master/LICENSE"><img src="https://img.shields.io/github/license/nomoresat/DPITunnel-cli?style=flat-square" alt="License"/></a>
-<a href="https://github.com/txtsd/DPITunnel-cli/releases/latest"><img src="https://img.shields.io/github/v/release/nomoresat/DPITunnel-cli?style=flat-square" alt="Latest release"/></a>
-<a href="https://github.com/txtsd/DPITunnel-cli/releases"><img src="https://img.shields.io/github/downloads/nomoresat/DPITunnel-cli/total?style=flat-square" alt="Downloads"/></a>
+<a href="https://github.com/txtsd/DPITunnel/blob/master/LICENSE"><img src="https://img.shields.io/github/license/txtsd/DPITunnel?style=flat-square" alt="License"/></a>
+<a href="https://github.com/txtsd/DPITunnel/releases/latest"><img src="https://img.shields.io/github/v/release/txtsd/DPITunnel?style=flat-square" alt="Latest release"/></a>
+<a href="https://github.com/txtsd/DPITunnel/releases"><img src="https://img.shields.io/github/downloads/txtsd/DPITunnel/total?style=flat-square" alt="Downloads"/></a>
 </div>
 
 ### What is it
@@ -92,11 +88,13 @@ iptables -t nat -A PREROUTING -i <iface> -p tcp --dport 443 -j REDIRECT --to-por
 
 ## Links
 [Telegram chat](https://t.me/DPITunnelOFFICIAL)
+[Android Version](https://github.com/nomoresat/DPITunnel-android)
 
 [4PDA](https://4pda.to/forum/index.php?showtopic=1043778)
 
 ## Thanks
 * [ValdikSS (GoodbyeDPI)](https://github.com/ValdikSS/GoodbyeDPI)
+* [nomoresat (DPITunnel)](https://github.com/nomoresat/DPITunnel)
 
 ## Dependencies
 * [RawSocket](https://github.com/chkpk/RawSocket)

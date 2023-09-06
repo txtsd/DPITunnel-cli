@@ -1,4 +1,4 @@
-#include "dpitunnel-cli.h"
+#include "dpitunnel.h"
 
 #include "autoconf.h"
 #include "desync.h"
@@ -32,14 +32,14 @@
 const std::string CONNECTION_ESTABLISHED_RESPONSE("HTTP/1.1 200 Connection established\r\n\r\n");
 const std::string CONNECTION_ERROR_RESPONSE(
         "HTTP/1.1 0 Connection establish problem (read logs)\r\n\r\n");
-const std::string PROCESS_NAME("DPITunnel-cli");
+const std::string PROCESS_NAME("DPITunnel");
 const std::string HELP_PAGE(
-        "DPITunnel-cli, program for bypassing internet censorship without a proxy server.\n"
+        "DPITunnel, program for bypassing internet censorship without a proxy server.\n"
         "\n"
         "Usage:\n"
-        "  dpitunnel-cli [options]\n"
-        "  dpitunnel-cli [--pid <file>][--ip <bind_ip>][--port <bind_port>][--mode <mode>][--ca-bundle-path <path>][--daemon] <--profile [<net_interface_name>[:<wifi_name>]]|[default] [options]>...\n"
-        "  dpitunnel-cli --auto\n"
+        "  dpitunnel [options]\n"
+        "  dpitunnel [--pid <file>][--ip <bind_ip>][--port <bind_port>][--mode <mode>][--ca-bundle-path <path>][--daemon] <--profile [<net_interface_name>[:<wifi_name>]]|[default] [options]>...\n"
+        "  dpitunnel --auto\n"
         "\n"
         "Options:\n"
         "  --auto\t\t\t\t\tchoose the settings for current ISP automatically\n"

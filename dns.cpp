@@ -1,4 +1,4 @@
-#include "dpitunnel-cli.h"
+#include "dpitunnel.h"
 
 #include "dns.h"
 #include "ssl.h"

@@ -1,4 +1,4 @@
-#include "dpitunnel-cli.h"
+#include "dpitunnel.h"
 
 #include "netiface.h"
 #include "profiles.h"
