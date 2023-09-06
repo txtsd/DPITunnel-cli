@@ -15,7 +15,7 @@ chmod g+w /var/cache/distfiles
 adduser -G abuild -g "Alpine Package Builder" -s /bin/ash -D abuilder
 
 # Build static libnl3
-abuild-keygen -n -a -i -b 4096
+runuser -u abuilder -- /usr/bin/abuild-keygen -n -a -i -b 4096
 git clone https://gitlab.alpinelinux.org/alpine/aports.git --depth 1
 cd aports/main/libnl3
 runuser -u abuilder -- /usr/bin/abuild -r
