@@ -27,7 +27,7 @@ jobs:
 
       - name: Setup Docker
         run: |
-          docker run --rm --privileged multiarch/qemu-user-static:register --reset
+          docker run --rm --privileged multiarch/qemu-user-static:register --reset --credential yes
 
       - name: Build in Docker
         run: |
