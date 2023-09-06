@@ -24,6 +24,6 @@ runuser -u abuilder -- /usr/bin/abuild -r
 runuser -u abuilder -- apk add ~/packages/main/$(abuild -A)/libnl3*
 
 # Build static DPITunnel-cli
-cmake -B build -DCMAKE_BUILD_TYPE=RELEASE -DSTATIC_BINARY=true -G Ninja .
-cmake --build build
+runuser -u abuilder -- cmake -B build -DCMAKE_BUILD_TYPE=RELEASE -DSTATIC_BINARY=true -G Ninja .
+runuser -u abuilder -- cmake --build build
 
