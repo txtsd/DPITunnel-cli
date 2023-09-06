@@ -19,7 +19,7 @@ echo "abuilder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 # Build static libnl3
 runuser -u abuilder -- /usr/bin/abuild-keygen -n -a -i -b 4096
 runuser -u abuilder -- cd /home/abuilder && git clone https://gitlab.alpinelinux.org/alpine/aports.git --depth 1
-runuser -u abuilder -- cd /home/abuilder/aports/main/libnl3 && /usr/bin/abuild -r
+runuser -u abuilder -- cd /home/abuilder/aports/main/libnl3 && sed -i "s/--disable-static/--enable-static/" APKBUILD && /usr/bin/abuild -r
 apk add /home/abuilder/packages/main/$(abuild -A)/libnl3*
 
 # Build static DPITunnel-cli
