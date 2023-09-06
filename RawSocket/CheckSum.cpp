@@ -17,8 +17,7 @@ static uint32_t CalSum(const uint8_t* buf, int len) {
     p += 2;
   }
   if (len == 1)
-    sum += *p << 8;  //
-    //sum += *p;  //
+    sum += *p << 8;
   return sum;
 }
 
