@@ -11,11 +11,14 @@ chmod a+w /var/cache/distfiles
 chgrp abuild /var/cache/distfiles
 chmod g+w /var/cache/distfiles
 
+# Create user to run abuild
+adduser -G abuild -g "Alpine Package Builder" -s /bin/ash -D abuilder
+
 # Build static libnl3
-abuild-keygen -a -i -b 4096
+abuild-keygen -n -a -i -b 4096
 git clone https://gitlab.alpinelinux.org/alpine/aports.git --depth 1
 cd aports/main/libnl3
-abuild -r
+runuser -u abuilder /usr/bin/abuild -r
 apk add ~/packages/main/$(abuild -A)/libnl3*
 
 # Build static DPITunnel-cli
