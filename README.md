@@ -3,7 +3,7 @@
 <br><h1>DPI Tunnel for Linux</h1>
 Free, simple and serverless solution against censorship for Linux PCs and routers
 
-<a href="https://github.com/txtsd/DPITunnel/blob/master/LICENSE"><img src="https://img.shields.io/github/license/txtsd/DPITunnel?style=flat-square" alt="License"/></a>
+<a href="https://github.com/txtsd/DPITunnel/blob/main/LICENSE"><img src="https://img.shields.io/github/license/txtsd/DPITunnel?style=flat-square" alt="License"/></a>
 <a href="https://github.com/txtsd/DPITunnel/releases/latest"><img src="https://img.shields.io/github/v/release/txtsd/DPITunnel?style=flat-square" alt="Latest release"/></a>
 <a href="https://github.com/txtsd/DPITunnel/releases"><img src="https://img.shields.io/github/downloads/txtsd/DPITunnel/total?style=flat-square" alt="Downloads"/></a>
 </div>
@@ -123,7 +123,7 @@ iptables -t nat -A PREROUTING -i <iface> -p tcp --dport 443 -j REDIRECT --to-por
 ## Thanks
 
 * [ValdikSS (GoodbyeDPI)](https://github.com/ValdikSS/GoodbyeDPI)
-* [nomoresat (DPITunnel)](https://github.com/nomoresat/DPITunnel)
+* [nomoresat (DPITunnel)](https://github.com/nomoresat/DPITunnel-cli)
 
 ## Dependencies
 
