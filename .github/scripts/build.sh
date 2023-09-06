@@ -22,6 +22,7 @@ runuser -u abuilder -- /usr/bin/abuild-keygen -n -a -i -b 4096
 cd /home/abuilder
 runuser -u abuilder -- git clone https://gitlab.alpinelinux.org/alpine/aports.git --depth 1
 cd /home/abuilder/aports/main/libnl3
+runuser -u abuilder -- /usr/bin/sed -i "s/subpackages=\"/subpackages=\"\$pkgname-static /" APKBUILD
 runuser -u abuilder -- /usr/bin/sed -i "s/--disable-static/--enable-static/" APKBUILD
 runuser -u abuilder -- /usr/bin/abuild -r
 apk add /home/abuilder/packages/main/$(abuild -A)/libnl3*
