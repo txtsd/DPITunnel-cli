@@ -11,6 +11,7 @@ mkdir -p /var/cache/distfiles
 chmod a+w /var/cache/distfiles
 chgrp abuild /var/cache/distfiles
 chmod g+w /var/cache/distfiles
+cwd=$(pwd)
 
 # Create user to run abuild
 adduser -G abuild -g "Alpine Package Builder" -s /bin/ash -D abuilder
@@ -26,7 +27,7 @@ runuser -u abuilder -- /usr/bin/abuild -r
 apk add /home/abuilder/packages/main/$(abuild -A)/libnl3*
 
 # Build static DPITunnel-cli
-cd ${{ github.workspace }}
+cd ${cwd}
 cmake -B build -DCMAKE_BUILD_TYPE=RELEASE -DSTATIC_BINARY=true -G Ninja .
 cmake --build build
 
