@@ -15,7 +15,7 @@ void add_profile(std::string name, Profile_s profile) {
 }
 
 int change_profile(const std::string &iface, const std::string &wifi_ap,
-                   std::string *choosen_profile_name /*= NULL*/) {
+                   std::string *chosen_profile_name /*= NULL*/) {
     if (Profiles.empty())
         return 0;
 
@@ -38,8 +38,8 @@ int change_profile(const std::string &iface, const std::string &wifi_ap,
         }
     }
 
-    if (choosen_profile_name != NULL)
-        *choosen_profile_name = search->first;
+    if (chosen_profile_name != NULL)
+        *chosen_profile_name = search->first;
 
     return 0;
 }

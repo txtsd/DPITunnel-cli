@@ -223,7 +223,7 @@ int check_http_response(int socket, std::string host, std::string ip, int port, 
     if (last_char == 0)
         return -1;
 
-    // Count factors indicating that packet was send by DPI
+    // Count factors indicating that packet was sent by DPI
     unsigned short factors = 0;
     // Check time
     if (receive_time < connect_time * 2 / 3)
@@ -540,11 +540,11 @@ int run_autoconf() {
     fakes_ttl--;
 
     // Iterate through all combinations
-    const std::vector<Desync_zero_attacks> zero_attacks = {DESYNC_ZERO_NONE, DESYNC_ZERO_FAKE,
+    const std::vector <Desync_zero_attacks> zero_attacks = {DESYNC_ZERO_NONE, DESYNC_ZERO_FAKE,
                                                            DESYNC_ZERO_RST, DESYNC_ZERO_RSTACK};
-    const std::vector<Desync_first_attacks> first_attacks = {DESYNC_FIRST_DISORDER_FAKE,
+    const std::vector <Desync_first_attacks> first_attacks = {DESYNC_FIRST_DISORDER_FAKE,
                                                              DESYNC_FIRST_SPLIT_FAKE};
-    const std::vector<std::string> fake_types = {"ttl", "wrong-seq"};
+    const std::vector <std::string> fake_types = {"ttl", "wrong-seq"};
     const std::vector<bool> win_size_scales = {false, true};
     unsigned int comb_all =
             zero_attacks.size() * first_attacks.size() * fake_types.size() * win_size_scales.size();

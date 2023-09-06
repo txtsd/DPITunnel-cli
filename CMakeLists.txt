@@ -28,7 +28,7 @@ add_executable(DPITunnel-exec
         socket.cpp
         ssl.cpp
         utils.cpp
-        )
+)
 
 if (STATIC_BINARY)
     target_link_libraries(DPITunnel-exec -static)
@@ -52,7 +52,7 @@ find_package(httplib 0.13.3 COMPONENTS OpenSSL ZLIB Brotli)
 if (NOT HTTPLIB_FOUND)
     add_subdirectory(cpp-httplib)
     message(STATUS "Using bundled httplib")
-endif()
+endif ()
 
 # Add libnl (libnl)
 find_package(LibNL REQUIRED)
@@ -64,7 +64,7 @@ target_include_directories(DPITunnel-exec
         ${PROJECT_SOURCE_DIR}/RawSocket/include
         ${PROJECT_SOURCE_DIR}/dnslib/include
         ${LibNL_INCLUDE_DIR}
-        )
+)
 
 target_link_libraries(DPITunnel-exec
         RawSocket
@@ -75,7 +75,7 @@ target_link_libraries(DPITunnel-exec
         Threads::Threads
         OpenSSL::SSL
         OpenSSL::Crypto
-        )
+)
 
 if (STATIC_BINARY)
     target_link_libraries(DPITunnel-exec ${CMAKE_DL_LIBS})

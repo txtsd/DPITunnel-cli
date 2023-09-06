@@ -72,7 +72,7 @@ void route_monitor_thread() {
         return;
     }
 
-    // Make sokcet non-blocking
+    // Make socket non-blocking
     if (fcntl(sock, F_SETFL, fcntl(sock, F_GETFL, 0) | O_NONBLOCK) == -1) {
         std::cerr << "Failed to make netlink socket non-blocking. Errno: " << std::strerror(errno)
                   << std::endl;
