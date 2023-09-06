@@ -31,7 +31,7 @@ jobs:
 
       - name: Build in Docker
         run: |
-          docker run --workdir /github/workspace --rm --entrypoint "${{ github.workspace }}/.github/scripts/build.sh" -v "$(pwd)":"/github/workspace" multiarch/alpine:${{ matrix.arch }}-edge
+          docker run --workdir /github/workspace --rm --entrypoint "./.github/scripts/build.sh" -v "$(pwd)":"/github/workspace" multiarch/alpine:${{ matrix.arch }}-edge
 
       - name: Upload Binary
         if: github.event_name != 'release'
