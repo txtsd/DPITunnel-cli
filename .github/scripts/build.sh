@@ -2,7 +2,7 @@
 
 # General updates
 apk update
-apk add cmake openssl openssl-dev openssl-libs-static linux-headers ninja-is-really-ninja alpine-sdk
+apk add cmake openssl openssl-dev openssl-libs-static linux-headers ninja-is-really-ninja alpine-sdk runuser
 
 # Setup build environment
 addgroup $(whoami) abuild
