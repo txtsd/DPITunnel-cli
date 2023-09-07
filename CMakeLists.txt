@@ -4,7 +4,6 @@ cmake_minimum_required(VERSION 3.24)
 # Set the project name
 project(DPITunnel DESCRIPTION "A program for bypassing internet censorship without a proxy server" LANGUAGES CXX)
 
-enable_language(CXX)
 set(CMAKE_CXX_STANDARD 20)
 cmake_policy(SET CMP0065 NEW)
 cmake_policy(SET CMP0138 NEW)
