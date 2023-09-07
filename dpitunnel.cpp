@@ -20,6 +20,7 @@
 #include <mutex>
 #include <thread>
 #include <csignal>
+#include <format>
 #include <unordered_map>
 #include <sys/prctl.h>
 #include <sys/socket.h>
@@ -34,7 +35,8 @@ const std::string CONNECTION_ERROR_RESPONSE(
         "HTTP/1.1 0 Connection establish problem (read logs)\r\n\r\n");
 const std::string PROCESS_NAME("DPITunnel");
 const std::string HELP_PAGE(
-        "DPITunnel\n"
+        std::format(
+        "DPITunnel {}\n"
         "  A program for bypassing internet censorship without a proxy server\n"
         "\n"
         "Usage:\n"
@@ -76,6 +78,7 @@ const std::string HELP_PAGE(
         "  --custom-ips=<filename>\t\t\tallows to set custom IPs for specific domains, ignoring DNS/DoH response\n"
         "  --wsize=<number>\t\t\t\tTCP window size. Used to ask server to split Server Hello\n"
         "  --wsfactor=<number>\t\t\t\tTCP window scale factor. Used with wsize option"
+        , DPITUNNEL_VERSION)
 );
 int Interrupt_pipe[2];
 std::atomic<bool> stop_flag;

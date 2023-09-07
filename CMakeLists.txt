@@ -2,9 +2,12 @@
 cmake_minimum_required(VERSION 3.24)
 
 # Set the project name
-project(DPITunnel DESCRIPTION "A program for bypassing internet censorship without a proxy server" LANGUAGES CXX)
+file(STRINGS include/dpitunnel.h _raw_version_string REGEX "DPITUNNEL_VERSION \"([0-9]+\\.[0-9]+\\.[0-9]+)\"")
+string(REGEX MATCH "([0-9]+\\.?)+" _dpitunnel_version "${_raw_version_string}")
+project(DPITunnel DESCRIPTION "A program for bypassing internet censorship without a proxy server" VERSION ${_dpitunnel_version} LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CXX_STANDARD_REQUIRED on)
 cmake_policy(SET CMP0065 NEW)
 cmake_policy(SET CMP0138 NEW)
 
