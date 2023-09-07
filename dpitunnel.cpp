@@ -34,7 +34,8 @@ const std::string CONNECTION_ERROR_RESPONSE(
         "HTTP/1.1 0 Connection establish problem (read logs)\r\n\r\n");
 const std::string PROCESS_NAME("DPITunnel");
 const std::string HELP_PAGE(
-        "DPITunnel, program for bypassing internet censorship without a proxy server.\n"
+        "DPITunnel\n"
+        "  A program for bypassing internet censorship without a proxy server\n"
         "\n"
         "Usage:\n"
         "  dpitunnel [options]\n"
