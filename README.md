@@ -123,7 +123,7 @@ iptables -t nat -A PREROUTING -i <iface> -p tcp --dport 443 -j REDIRECT --to-por
 ## Thanks
 
 * [ValdikSS (GoodbyeDPI)](https://github.com/ValdikSS/GoodbyeDPI)
-* [nomoresat (DPITunnel)](https://github.com/nomoresat/DPITunnel-cli)
+* [nomoresat (DPITunnel-cli)](https://github.com/nomoresat/DPITunnel-cli)
 
 ## Dependencies
 
