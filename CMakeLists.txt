@@ -1,16 +1,46 @@
 # Set the minimum version of CMake that can be used
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.24)
 
-set(CMAKE_CXX_STANDARD 14)
+# Set the project name
+project(DPITunnel DESCRIPTION "A program for bypassing internet censorship without a proxy server" LANGUAGES CXX)
+
+enable_language(CXX)
+set(CMAKE_CXX_STANDARD 20)
 cmake_policy(SET CMP0065 NEW)
+cmake_policy(SET CMP0138 NEW)
+
+set(CMAKE_CXX_FLAGS "-Wall -pedantic -fstack-protector-strong --param=ssp-buffer-size=4 ${CMAKE_CXX_FLAGS}")
+
+# set CXXFLAGS for build targets
+set(CMAKE_CXX_FLAGS_RELEASE "-O2 -D_FORTIFY_SOURCE=2 ${CMAKE_CXX_FLAGS_RELEASE}")
+
+option(ENABLE_LTO "Enable Link Time Optimization" off)
+
+if (ENABLE_LTO)
+    include(CheckIPOSupported)
+    check_ipo_supported(RESULT ipo_supported OUTPUT ipo_error)
+
+    if (ipo_supported)
+        if (CMAKE_BUILD_TYPE)
+            if (CMAKE_BUILD_TYPE STREQUAL "Release" OR CMAKE_BUILD_TYPE STREQUAL "MinSizeRel")
+                set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE TRUE)
+                set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_MINSIZEREL TRUE)
+                message(STATUS "IPO / LTO enabled")
+            else ()
+                message(STATUS "Not enabling IPO / LTO on debug builds")
+            endif ()
+        else ()
+            message(STATUS "IPO / LTO will only be enabled for release builds")
+        endif ()
+    else ()
+        message(STATUS "IPO / LTO not supported: <${ipo_error}>")
+    endif ()
+endif ()
 
 if (STATIC_BINARY)
     message(STATUS "Building static portable binary with small size")
 endif ()
 
-
-# Set the project name
-project(DPITunnel)
 
 # Add dependencies
 add_subdirectory(RawSocket)
