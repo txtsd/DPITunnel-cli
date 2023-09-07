@@ -48,7 +48,7 @@ endif ()
 find_package(OpenSSL 3.0.0 REQUIRED COMPONENTS SSL Crypto)
 
 # Add httplib (cpp-httplib)
-find_package(httplib 0.13.3 COMPONENTS OpenSSL ZLIB Brotli)
+find_package(httplib 0.14.0 COMPONENTS OpenSSL ZLIB Brotli)
 if (NOT HTTPLIB_FOUND)
     add_subdirectory(cpp-httplib)
     message(STATUS "Using bundled httplib")
