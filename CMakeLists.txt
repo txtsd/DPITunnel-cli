@@ -49,7 +49,7 @@ add_subdirectory(RawSocket)
 add_subdirectory(dnslib)
 
 # Add an executable
-add_executable(DPITunnel-exec
+add_executable(dpitunnel
         autoconf.cpp
         desync.cpp
         dns.cpp
@@ -63,10 +63,10 @@ add_executable(DPITunnel-exec
 )
 
 if (STATIC_BINARY)
-    target_link_libraries(DPITunnel-exec -static)
-    target_link_options(DPITunnel-exec PRIVATE "LINKER:--gc-sections")
-    target_link_options(DPITunnel-exec PRIVATE "LINKER:-s")
-    target_compile_options(DPITunnel-exec PRIVATE -ffunction-sections)
+    target_link_libraries(dpitunnel -static)
+    target_link_options(dpitunnel PRIVATE "LINKER:--gc-sections")
+    target_link_options(dpitunnel PRIVATE "LINKER:-s")
+    target_compile_options(dpitunnel PRIVATE -ffunction-sections)
 endif ()
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
@@ -90,7 +90,7 @@ endif ()
 find_package(LibNL REQUIRED)
 
 # Set the directories that should be included in the build command for this target
-target_include_directories(DPITunnel-exec
+target_include_directories(dpitunnel
         PRIVATE
         ${PROJECT_SOURCE_DIR}/include
         ${PROJECT_SOURCE_DIR}/RawSocket/include
@@ -98,7 +98,7 @@ target_include_directories(DPITunnel-exec
         ${LibNL_INCLUDE_DIR}
 )
 
-target_link_libraries(DPITunnel-exec
+target_link_libraries(dpitunnel
         RawSocket
         httplib::httplib
         dnslib
@@ -110,5 +110,5 @@ target_link_libraries(DPITunnel-exec
 )
 
 if (STATIC_BINARY)
-    target_link_libraries(DPITunnel-exec ${CMAKE_DL_LIBS})
+    target_link_libraries(dpitunnel ${CMAKE_DL_LIBS})
 endif ()
