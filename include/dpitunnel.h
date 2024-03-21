@@ -1,7 +1,7 @@
 #ifndef DPITUNNEL_CLI_H
 #define DPITUNNEL_CLI_H
 
-#define DPITUNNEL_VERSION "0.9.0"
+#define DPITUNNEL_VERSION "1.0.0"
 
 #include <map>
 #include <set>
