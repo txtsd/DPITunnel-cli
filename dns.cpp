@@ -18,7 +18,7 @@
 #include <dnslib/message.h>
 #include <dnslib/rr.h>
 
-#include "cpp-httplib/httplib.h"
+#include <httplib.h>
 
 #include <base64.h>
 
