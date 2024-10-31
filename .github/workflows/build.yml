@@ -14,10 +14,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - arch: amd64
+          - arch: x86_64
           - arch: x86
           - arch: armhf
-          - arch: arm64
+          - arch: aarch64
+          - arch: armv7
+          - arch: ppc64le
+          - arch: s390x
     name: Build on ${{ matrix.arch }}
     steps:
       - name: Git Checkout
