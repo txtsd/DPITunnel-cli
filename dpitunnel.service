@@ -1,6 +1,6 @@
 [Unit]
 Description=DPITunnel
-After=network.target
+After=network-online.target
 
 [Service]
 SyslogIdentifier=dpitunnel
@@ -11,7 +11,7 @@ User=root
 Group=root
 ExecStart=/usr/bin/dpitunnel -doh -doh-server https://dns.google/dns-query -ttl 1 -ca-bundle-path "/etc/ssl/certs/ca-bundle.crt" -desync-attacks disorder_fake
 TimeoutStopSec=15
-CapabilityBoundingSet=CAP_NET_RAW
+CapabilityBoundingSet=CAP_NET_RAW CAP_NET_ADMIN
 IPAddressAllow=localhost link-local multicast
 LockPersonality=true
 MemoryDenyWriteExecute=true
